@@ -1,7 +1,16 @@
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+:root {
+  --hue: 200;
+  --saturation: 50%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+  --background-color: hsl(var(--hue), var(--saturation), 20%);
 }
 
 html {
@@ -12,4 +21,23 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+}
+
+.paddle {
+  --position: 50;
+
+  position: absolute;
+  background-color: var(--foreground-color);
+  top: calc(var(--position) * 1vh);
+  transform: translateY(-50%);
+  width: 1vh;
+  height: 10vh;
+}
+
+.paddle.left {
+  left: 1vw;
+}
+.paddle.right {
+  right: 1vw;
 }
